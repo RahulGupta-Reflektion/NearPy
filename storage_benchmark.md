@@ -8,6 +8,9 @@
 ### local Memory 
 * Size ~ 800 MB 
 
+### Flat File 
+* Size 2 GB
+
 ### Redis Memory
 * Size ~ 800 MB 
 

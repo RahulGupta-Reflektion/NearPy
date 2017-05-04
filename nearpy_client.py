@@ -7,6 +7,9 @@ from pymongo import MongoClient
 from nearpy.storage.storage_mongo import MongoStorage
 from nearpy.utils.utils_storage import getsize
 
+# Dimension of our vector space
+dimension = 1024
+
 
 class GetStorageFactory(object):
     @classmethod
@@ -35,8 +38,6 @@ class GetStorageFactory(object):
 
 
 def measure_size(storage_name):
-    # Dimension of our vector space
-    dimension = 1024
 
     # Create a random binary hash with 10 bits
     rbp = RandomBinaryProjections('rbp_random', 10)
@@ -56,5 +57,14 @@ def measure_size(storage_name):
 
     return getsize(engine)
 
+
+def save_in_file_locally():
+    with open('f.txt', 'w') as f:
+        for index in range(100000):
+            numpy.set_printoptions(threshold=numpy.inf)
+            v = numpy.random.randn(dimension)
+            f.write("%s\n" % v)
+
+
 if __name__ =='__main__':
-    measure_size('redis')
+    save_in_file_locally()
